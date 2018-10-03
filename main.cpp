@@ -5,5 +5,5 @@
 int main()
 {
   std::cout << "\hellow word\n";
-  return 1;
+  return 0;
 }
