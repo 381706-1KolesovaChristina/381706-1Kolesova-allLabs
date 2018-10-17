@@ -1,20 +1,24 @@
-п»їcmake_minimum_required(VERSION 2.8) #РџСЂРѕРІРµСЂРєР° РІРµСЂСЃРёРё CMake.
+cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
 
-set(Test1 381706-1Kolesova-allLabs) #РЎРѕР·РґР°РµРј РѕР±С‹С‡РЅСѓСЋ Р»РѕРєР°Р»СЊРЅСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ СЃ РёРјРµРЅРµРј РїСЂРѕРµРєС‚Р°
-project(${Test1}) # РќР°Р·РІР°РЅРёРµ РїСЂРѕРµРєС‚Р°
+set(Test1 381706-1Kolesova-allLabs) #Создаем обычную локальную переменную с именем проекта
+project(${Test1}) # Название проекта
 
-#set(MyLib1 MyLib1) #РџРµСЂРµРјРµРЅРЅР°СЏ СЃ РёРјРµРЅРµРј Р±РёР±Р»РёРѕС‚РµРєРё
+set(Vector Vector)
+set(VectorLib VectorLib)
 
-set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #РЎРѕР·РґР°РµС‚СЃСЏ РїРµСЂРµРјРµРЅРЅР°СЏ CMAKE_CONFIGURATION_TYPES СЃРѕ Р·РЅР°С‡РµРЅРёРµРј "Debug;Release" Рё РјРµС‚РєРѕР№/СЂР°Р·РґРµР»РѕРј Configs, РїРµСЂРµРјРµРЅРЅР°СЏ СЃРѕС…СЂР°РЅРёРµС‚СЃСЏ РІ СЃРїРµС†РёР°Р»СЊРЅРѕРј С„Р°Р№Р»Рµ РґРѕСЃС‚СѓРїРЅРѕРј РёР· РІСЃРµС… С„Р°Р№Р»РѕРІ,
-if(NOT CMAKE_BUILD_TYPE) # РїСЂРѕРІРµСЂРєР° РёРјРµСЋС‰РёС…СЃСЏ Сѓ РєРѕРјРїРёР»СЏС‚РѕСЂР° РІР°СЂРёР°РЅС‚РѕРІ СЃР±РѕСЂРєРё
-  set(CMAKE_BUILD_TYPE Release) #Р•СЃР»Рё РЅРµС‚ С‚Рѕ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј Release
+#set(MyLib1 MyLib1) #Переменная с именем библиотеки
+
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
+if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
+  set(CMAKE_BUILD_TYPE Release) #Если нет то устанавливаем Release
 endif()
 
-file(GLOB hdrs "*.h*") #Р”РѕР±Р°РІР»СЏРµРј РІ РїРµСЂРµРјРµРЅРЅСѓСЋ hdrs РІСЃРµ С„Р°Р№Р»С‹ СЃ СЂР°СЃС€РёСЂРµРЅРёРµРј .h
-file(GLOB srcs "*.cpp") #Р”РѕР±Р°РІР»СЏРµРј РІ РїРµСЂРµРјРµРЅРЅСѓСЋ srcs РІСЃРµ С„Р°Р№Р»С‹ СЃ СЂР°СЃС€РёСЂРµРЅРёРµРј .h
+#add_executable(${Vector} ${srcs} ${hdrs}) #Создаем проект с именем из переменной ${PROJECT_NAME}, в него добавляются файлы из переменных ${srcs} и ${hdrs}
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 
-add_executable(${Test1} ${srcs} ${hdrs}) #РЎРѕР·РґР°РµРј РїСЂРѕРµРєС‚ СЃ РёРјРµРЅРµРј РёР· РїРµСЂРµРјРµРЅРЅРѕР№ ${PROJECT_NAME}, РІ РЅРµРіРѕ РґРѕР±Р°РІР»СЏСЋС‚СЃСЏ С„Р°Р№Р»С‹ РёР· РїРµСЂРµРјРµРЅРЅС‹С… ${srcs} Рё ${hdrs}
+add_subdirectory(Vector) #Собираем проект в поддиректории lib1
+add_subdirectory(VectorLib) #Собираем проект в поддиректории lib1
 
-#add_subdirectory(lib1) #РЎРѕР±РёСЂР°РµРј РїСЂРѕРµРєС‚ РІ РїРѕРґРґРёСЂРµРєС‚РѕСЂРёРё lib1
-#target_link_libraries(${PROJECT_NAME} ${MyLib1}) #РџРѕРґРєР»СЋС‡Р°РµРј Рє РїСЂРѕРµРєС‚Сѓ СЃ РёРјРµРЅРµРј ${PROJECT_NAME} Р±РёР±Р»РёРѕС‚РµРєСѓ СЃ РёРјРµРЅРµРј ${MyLib1}
+#target_link_libraries(${PROJECT_NAME} ${MyLib1}) #Подключаем к проекту с именем ${PROJECT_NAME} библиотеку с именем ${MyLib1}
+
