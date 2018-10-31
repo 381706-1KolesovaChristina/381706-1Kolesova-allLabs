@@ -5,6 +5,7 @@ project(${Test1}) # Название проекта
 
 set(Vector Vector)
 set(VectorLib VectorLib)
+set(Vectortest Vectortest)
 
 #set(MyLib1 MyLib1) #Переменная с именем библиотеки
 
@@ -15,10 +16,12 @@ endif()
 
 #add_executable(${Vector} ${srcs} ${hdrs}) #Создаем проект с именем из переменной ${PROJECT_NAME}, в него добавляются файлы из переменных ${srcs} и ${hdrs}
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib ${CMAKE_CURRENT_SOURCE_DIR}/gtest)
 
 add_subdirectory(Vector) #Собираем проект в поддиректории lib1
 add_subdirectory(VectorLib) #Собираем проект в поддиректории lib1
+add_subdirectory(Vectortest)
+add_subdirectory(gtest)
 
 #target_link_libraries(${PROJECT_NAME} ${MyLib1}) #Подключаем к проекту с именем ${PROJECT_NAME} библиотеку с именем ${MyLib1}
 
