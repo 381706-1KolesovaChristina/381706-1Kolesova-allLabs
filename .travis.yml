@@ -8,9 +8,7 @@ before_script:
 script:
   - cmake ../381706-1Kolesova-allLabs
   - make -j
-  - ./Vector/Vector
-  - ./Vectortest/Vectortest
-  - ./Matrix/Matrix
+  - ./Vectortest/VectorTest
   - ./MatrixTest/MatrixTest
 notifications:
   email: false
