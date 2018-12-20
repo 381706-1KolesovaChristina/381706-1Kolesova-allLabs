@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\мв\Desktop\lab1\mp2-lab1-set\gtest\gtest-all.cc">
+    <ClCompile Include="C:\Users\мв\Desktop\программирование\2 лаба вектор-матрица\моя\381706-1Kolesova-allLabs\gtest\gtest-all.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\мв\Desktop\lab1\mp2-lab1-set\gtest\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\мв\Desktop\программирование\2 лаба вектор-матрица\моя\381706-1Kolesova-allLabs\gtest\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{3D680C87-6FC8-3FBB-80A4-A5F626DBC7DC}</UniqueIdentifier>
+      <UniqueIdentifier>{A7AB2FF9-A7DD-342D-8C4A-E5D927A8866E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

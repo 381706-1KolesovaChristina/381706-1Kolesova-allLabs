@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/мв/Desktop/lab1/mp2-lab1-set/gtest
+# Install script for directory: C:/Users/мв/Desktop/программирование/2 лаба вектор-матрица/моя/381706-1Kolesova-allLabs/gtest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/set")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/All_Labs")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
