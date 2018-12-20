@@ -1,31 +1,31 @@
-#pragma once
+п»ї#pragma once
 #include "ExceptionLib.h"
 
 template <class T>
 class TVector
 {
 protected:
-	T *Mas;     //указатель на вектор 
-	int Size;       // размер вектора
+	T *Mas;     //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РІРµРєС‚РѕСЂ 
+	int Size;       // СЂР°Р·РјРµСЂ РІРµРєС‚РѕСЂР°
 public:
 	TVector(int s = 0);
 	TVector(const TVector &v);
 	virtual ~TVector();
 
-	int getSize() const; // получить размер вектора
-	virtual T& operator[](int pos);           // доступ с 0
+	int getSize() const; // РїРѕР»СѓС‡РёС‚СЊ СЂР°Р·РјРµСЂ РІРµРєС‚РѕСЂР°
+	virtual T& operator[](int pos);           // РґРѕСЃС‚СѓРї СЃ 0
 
-	bool operator==(const TVector &v) const;  // сравнение равно 
-	bool operator!=(const TVector &v) const;  // сравнение не равно
-	virtual TVector& operator=(const TVector &v); // присваивание
+	bool operator==(const TVector &v) const;  // СЃСЂР°РІРЅРµРЅРёРµ СЂР°РІРЅРѕ 
+	bool operator!=(const TVector &v) const;  // СЃСЂР°РІРЅРµРЅРёРµ РЅРµ СЂР°РІРЅРѕ
+	virtual TVector& operator=(const TVector &v); // РїСЂРёСЃРІР°РёРІР°РЅРёРµ
 	
-	TVector operator+(const T &val);   // прибавить число
-	TVector operator-(const T &val);   // вычесть число
-	TVector operator*(const T &val);   // умножить на число
+	TVector operator+(const T &val);   // РїСЂРёР±Р°РІРёС‚СЊ С‡РёСЃР»Рѕ
+	TVector operator-(const T &val);   // РІС‹С‡РµСЃС‚СЊ С‡РёСЃР»Рѕ
+	TVector operator*(const T &val);   // СѓРјРЅРѕР¶РёС‚СЊ РЅР° С‡РёСЃР»Рѕ
 
-	TVector operator+(const TVector &v);     // сложение
-	TVector operator-(const TVector &v);     // вычитание
-	T operator*(const TVector &v);     // скалярное произведение
+	TVector operator+(const TVector &v);     // СЃР»РѕР¶РµРЅРёРµ
+	TVector operator-(const TVector &v);     // РІС‹С‡РёС‚Р°РЅРёРµ
+	T operator*(const TVector &v);     // СЃРєР°Р»СЏСЂРЅРѕРµ РїСЂРѕРёР·РІРµРґРµРЅРёРµ
 
 	template <class ValType1>
 	friend istream& operator>>(istream &in, TVector<ValType1>& v);
