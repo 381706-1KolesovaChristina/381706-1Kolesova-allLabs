@@ -66,28 +66,6 @@ TEST(Vector, can_assign_vector)
 	ASSERT_TRUE(V1 == V2);
 }
 
-TEST(Vector, can_unary_addition)
-{
-	TVector <int> V1(2), V2(2);
-	for (int i = 0; i < V1.getSize(); i++) {
-		V1[i] = i + 1;
-		V2[i] = i + 1;
-	}
-	V1 = +V1;
-	ASSERT_TRUE(V1 == V2);
-}
-
-TEST(Vector, can_unary_subtraction)
-{
-	TVector <int> V1(2), V2(2);
-	for (int i = 0; i < V1.getSize(); i++) {
-		V1[i] = i + 1;
-		V2[i] = -(i + 1);
-	}
-	V1 = -V1;
-	ASSERT_TRUE(V1 == V2);
-}
-
 TEST(Vector, can_addition_vectors)
 {
 	TVector <int> V1(2), V2(2), Temp(2);
@@ -151,13 +129,3 @@ TEST(Vector, can_multiplication_vector_by_number)
 	ASSERT_TRUE(V1 == V2);
 }
 
-TEST(Vector, can_multiplication_number_by_vector)
-{
-	TVector <int> V1(2), V2(2);
-	for (int i = 0; i < V1.getSize(); i++) {
-		V1[i] = (i + 1);
-		V2[i] = 2 * (i + 1);
-	}
-	V1 = 2 * V1;
-	ASSERT_TRUE(V1 == V2);
-}

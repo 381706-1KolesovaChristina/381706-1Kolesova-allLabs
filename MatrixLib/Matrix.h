@@ -29,7 +29,7 @@ TMatrix<T>::TMatrix(int s) :TVector<TVector<T> >(s)
   if (s <= 0 )
     throw MyException(" wrong size ");
   for (int i = 0; i < s; i++)
-    this->vec[i] = TVector<T>(s - i);
+    this->Mas[i] = TVector<T>(s - i);
 } 
 //-------------------------------------------------------------------------
 template <class T>
@@ -66,7 +66,7 @@ TMatrix<T>& TMatrix<T>::operator=(const TMatrix<T> &mt)
 template <class T>
 TMatrix<T> TMatrix<T>::operator+(const TMatrix<T> &mt)
 {
-  if (this->size == mt.size)
+  if (this->Size == mt.Size)
     return TVector<TVector<T> >::operator+(mt);
   else
     throw MyException(" wrong size ");
@@ -75,7 +75,7 @@ TMatrix<T> TMatrix<T>::operator+(const TMatrix<T> &mt)
 template <class T>
 TMatrix<T> TMatrix<T>::operator-(const TMatrix<T> &mt)
 {
-  if (this->size == mt.size)
+  if (this->Size == mt.Size)
     return TVector<TVector<T> >::operator-(mt);
   else
     throw MyException(" wrong size ");
@@ -84,13 +84,13 @@ TMatrix<T> TMatrix<T>::operator-(const TMatrix<T> &mt)
 template <class T>
 TMatrix<T> TMatrix<T>::operator*(const TMatrix<T> &MT)
 {
-  if (this->size != MT.size)
+  if (this->Size != MT.Size)
     throw MyException(" wrong size ");
-  TMatrix <T> rez(this->size);
-  for (int i = 0; i < this->size; i++)
-    for (int j = i; j < this->size; j++) {
+  TMatrix <T> rez(this->Size);
+  for (int i = 0; i < this->Size; i++)
+    for (int j = i; j < this->Size; j++) {
       for (int k = i; k <= j; k++)
-        rez.vec[i][j - i] += this->vec[i][k - i] * MT.vec[k][j - k];
+        rez.Mas[i][j - i] += this->Mas[i][k - i] * MT.Mas[k][j - k];
     }
   return rez;
 }
@@ -98,15 +98,15 @@ TMatrix<T> TMatrix<T>::operator*(const TMatrix<T> &MT)
 template <class ValType2>
 istream& operator>>(istream &in, TMatrix<ValType2> &mt)
 {
-  for (int i = 0; i < mt.size; i++)
-    in >> mt.vec[i];
+  for (int i = 0; i < mt.Size; i++)
+    in >> mt.Mas[i];
   return in;
 }
 //-------------------------------------------------------------------------
 template <class ValType2>
 ostream & operator<<(ostream &out, const TMatrix<ValType2> &mt)
 {
-  for (int i = 0; i < mt.size; i++)
-    out << mt.vec[i] << endl;
+  for (int i = 0; i < mt.Size; i++)
+    out << mt.Mas[i] << endl;
   return out;
 }

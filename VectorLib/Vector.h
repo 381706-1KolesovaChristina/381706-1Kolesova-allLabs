@@ -111,14 +111,14 @@ template <class T>
 bool TVector<T>::operator==(const TVector &v) const
 {
 	if (Size != v.Size)
-		return false;
-	else {
-		T mp = 0.0001;
+		return 0;
+	else
 		for (int i = 0; i < Size; i++)
-			if (((Mas[i] - v.Mas[i]) > mp) || ((v.Mas[i] - Mas[i]) > mp)) 
-				return false;
-	}
-	return true;
+			if (Mas[i] != v.Mas[i])
+			{
+				return 0;
+			}
+	return 1;
 } 
 //-------------------------------------------------------------------------
 template <class T>

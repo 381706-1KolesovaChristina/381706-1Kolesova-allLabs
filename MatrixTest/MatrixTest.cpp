@@ -25,8 +25,8 @@ TEST(Matrix, throws_when_create_matrix_with_negative_size)
 TEST(Matrix, can_equality_matrix_true)
 {
   TMatrix <int> M1(3), M2(3);
-  for (int i = 0; i < M1.GetSize(); i++)
-    for (int j = 0; j < M1.GetSize() - i; j++)
+  for (int i = 0; i < M1.getSize(); i++)
+    for (int j = 0; j < M1.getSize() - i; j++)
     {
       M1[i][j] = i;
       M2[i][j] = i;
@@ -37,8 +37,8 @@ TEST(Matrix, can_equality_matrix_true)
 TEST(Matrix, can_equality_matrix_false)
 {
   TMatrix <int> M1(3), M2(3);
-  for (int i = 0; i < M1.GetSize(); i++)
-    for (int j = 0; j < M1.GetSize() - i; j++)
+  for (int i = 0; i < M1.getSize(); i++)
+    for (int j = 0; j < M1.getSize() - i; j++)
     {
       M1[i][j] = i;
       M2[i][j] = i + 1;
@@ -55,8 +55,8 @@ TEST(Matrix, can_equality_matrix_with_diff_size)
 TEST(Matrix, can_inequality_matrix_true)
 {
   TMatrix <int> M1(3), M2(3);
-  for (int i = 0; i < M1.GetSize(); i++)
-    for (int j = 0; j < M1.GetSize() - i; j++)
+  for (int i = 0; i < M1.getSize(); i++)
+    for (int j = 0; j < M1.getSize() - i; j++)
     {
       M1[i][j] = i;
       M2[i][j] = i + 1;
@@ -67,8 +67,8 @@ TEST(Matrix, can_inequality_matrix_true)
 TEST(Matrix, can_inequality_matrix_false)
 {
   TMatrix <int> M1(3), M2(3);
-  for (int i = 0; i < M1.GetSize(); i++)
-    for (int j = 0; j < M1.GetSize() - i; j++)
+  for (int i = 0; i < M1.getSize(); i++)
+    for (int j = 0; j < M1.getSize() - i; j++)
     {
       M1[i][j] = i;
       M2[i][j] = i;
