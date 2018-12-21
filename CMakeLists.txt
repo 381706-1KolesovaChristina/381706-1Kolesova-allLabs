@@ -30,7 +30,7 @@ add_subdirectory(ExceptionLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 add_subdirectory(Vector)
 add_subdirectory(VectorLib)
-add_subdirectory(VectorTest)
+add_subdirectory(Vectortest)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
 add_subdirectory(Matrix)
