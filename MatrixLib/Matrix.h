@@ -99,16 +99,16 @@ TMatrix<T> TMatrix<T>::operator*(const TMatrix<T> &MT)
 template <class T>
 TMatrix<T> TMatrix<T>::operator/(const TMatrix<T> &mt)
 {
-  if (this->size != mt.size)
-    throw TException("Division of matrix of different dimensions.");
+  if (this->Size != mt.Size)
+    throw MyException(" Wrong size ");
   double check = 1;
-  for (int i = 0; i < (*this).size; i++)
-    check = check * (*this).mas[i][0];
+  for (int i = 0; i < (*this).Size; i++)
+    check = check * (*this).Mas[i][0];
   if (check < 0.000001)
-    throw TException("The determinant of the matrix-right operand is zero.");
+    throw MyException("Determinant = 0");
   TMatrix <T> copyMt(mt);
-  TMatrix <T> resMt((*this).size);
-  for (int i = 0; i < (*this).size; i++) {
+  TMatrix <T> resMt((*this).Size);
+  for (int i = 0; i < (*this).Size; i++) {
     resMt[i][0] = 1;
     T k = copyMt[i][0];
     for (int j = 0; j < (*this).size - i; j++)
@@ -118,12 +118,12 @@ TMatrix<T> TMatrix<T>::operator/(const TMatrix<T> &mt)
     }
   }
 
-  for (int j = 1; j < (*this).size; j++)
+  for (int j = 1; j < (*this).Size; j++)
   {
     for (int i = 0; i < j; i++)
     {
       T temp = copyMt[i][j - i];
-      for (int k = j - i, c = 0; k < (*this).size - i; k++)
+      for (int k = j - i, c = 0; k < (*this).Size - i; k++)
       {
         copyMt[i][k] = copyMt[i][k] - copyMt[j][c] * temp;
         resMt[i][k] = resMt[i][k] - resMt[j][c++] * temp;
