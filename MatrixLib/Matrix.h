@@ -111,7 +111,7 @@ TMatrix<T> TMatrix<T>::operator/(const TMatrix<T> &mt)
   for (int i = 0; i < (*this).Size; i++) {
     resMt[i][0] = 1;
     T k = copyMt[i][0];
-    for (int j = 0; j < (*this).size - i; j++)
+    for (int j = 0; j < (*this).Size - i; j++)
     {
       copyMt[i][j] = copyMt[i][j] / k;
       resMt[i][j] = resMt[i][j] / k;
