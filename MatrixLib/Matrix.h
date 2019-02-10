@@ -17,6 +17,7 @@ public:
   TMatrix operator-(const TMatrix &mt);         // вычитание
   TMatrix<T> operator*(const TMatrix<T> &MT);    // умножение
   TMatrix operator/ (const TMatrix<T> &mt);
+  TVector<T>& operator [] (int i);
 
   template <class ValType2>
   friend istream& operator>>(istream &in, TMatrix<ValType2> &mt);
@@ -144,7 +145,21 @@ istream& operator>>(istream &in, TMatrix<ValType2> &mt)
 template <class ValType2>
 ostream & operator<<(ostream &out, const TMatrix<ValType2> &mt)
 {
-  for (int i = 0; i < mt.Size; i++)
-    out << mt.Mas[i] << endl;
+	for (int i = 0; i < mt.Size; i++)
+	{
+		for (int j = 0; j < i; j++)
+			out << "\t";
+		out << mt.Mas[i] << endl;
+	}
   return out;
+}
+//-------------------------------------------------------------------------------------------------
+template <class T>
+TVector<T>& TMatrix<T>::operator[](int i)
+{
+	if (i >= 0)
+		if (i < this->Size)
+			return this->Mas[i];
+		else throw 1;
+	else throw - 1;
 }
