@@ -1,3 +1,3 @@
 # 381706-1Kolesova-allLabs
 
-[![Build Status](https://travis-ci.org/381706-1KolesovaChristina/381706-1Kolesova-allLabs.svg?branch=Vector)](https://travis-ci.org/381706-1KolesovaChristina/381706-1Kolesova-allLabs)
+[![Build Status](https://travis-ci.org/381706-1KolesovaChristina/381706-1Kolesova-allLabs.svg?branch=Stack)](https://travis-ci.org/381706-1KolesovaChristina/381706-1Kolesova-allLabs)
