@@ -201,6 +201,6 @@ template <class T>
 ostream& operator<<(ostream &out, const TVector<T> &v)
 {
 	for (int i = 0; i < v.Size; i++)
-		out << v.Mas[i] << ' ';
+		out << v.Mas[i] << "\t";
 	return out;
 }
