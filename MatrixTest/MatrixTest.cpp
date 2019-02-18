@@ -38,7 +38,7 @@ TEST(Matrix, can_equality_matrix_false)
 {
   TMatrix <int> M1(3), M2(3);
   for (int i = 0; i < M1.getSize(); i++)
-    for (int j = 0; j < M1.getSize() - i; j++)
+    for (int j = i; j < M1.getSize() - i; j++)
     {
       M1[i][j] = i;
       M2[i][j] = i + 1;
