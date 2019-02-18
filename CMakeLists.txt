@@ -22,10 +22,12 @@ add_subdirectory(gtest)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExceptionLib)
 add_subdirectory(ExceptionLib)
 
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
+add_subdirectory(Stack)
+
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
 add_subdirectory(Queue)
 add_subdirectory(QueueLib)
 add_subdirectory(QueueTest)
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
-add_subdirectory(StackLib)
