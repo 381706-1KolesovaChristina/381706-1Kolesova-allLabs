@@ -1,24 +1,72 @@
-cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
+cmake_minimum_required(VERSION 2.8) 
 
-set(Test1 381706-1Kolesova-allLabs) #Создаем обычную локальную переменную с именем проекта
-project(${Test1}) # Название проекта
 
-set(Vector Vector)
-set(VectorLib VectorLib)
+set(PROJECT_NAME 381706-1Kolesova-allLabs) 
 
-#set(MyLib1 MyLib1) #Переменная с именем библиотеки
+project(${PROJECT_NAME})
+ 
 
-set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
-if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
-  set(CMAKE_BUILD_TYPE Release) #Если нет то устанавливаем Release
+
+set(StackLib StackLib)
+ 
+
+set(QueueLib QueueLib)
+
+
+set(ExceptionLib ExceptionLib) 
+
+
+
+set(PolishLib PolishLib)
+
+set(Polish Polish)
+
+set(PolishTest PolishTestt)
+
+
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)  
+
+if(NOT CMAKE_BUILD_TYPE)
+ 
+  set(CMAKE_BUILD_TYPE Release) 
 endif()
 
-#add_executable(${Vector} ${srcs} ${hdrs}) #Создаем проект с именем из переменной ${PROJECT_NAME}, в него добавляются файлы из переменных ${srcs} и ${hdrs}
+file(GLOB hdrs "*.h*") 
+file(GLOB srcs "*.cpp") 
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 
-add_subdirectory(Vector) #Собираем проект в поддиректории lib1
-add_subdirectory(VectorLib) #Собираем проект в поддиректории lib1
+#add_executable(${PROJECT_NAME} ${srcs} ${hdrs}) 
 
-#target_link_libraries(${PROJECT_NAME} ${MyLib1}) #Подключаем к проекту с именем ${PROJECT_NAME} библиотеку с именем ${MyLib1}
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
+
+add_subdirectory(gtest)
+
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExceptionLib)
+
+add_subdirectory(ExceptionLib)
+
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
+
+add_subdirectory(QueueLib)
+
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
+
+add_subdirectory(StackLib) 
+
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PolishLib)
+
+add_subdirectory(PolishLib) 
+
+add_subdirectory(Polish) 
+
+add_subdirectory(PolishTest) 
 
