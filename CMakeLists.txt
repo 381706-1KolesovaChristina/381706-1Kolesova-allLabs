@@ -1,24 +1,76 @@
-cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
+cmake_minimum_required(VERSION 2.8) 
 
-set(Test1 381706-1Kolesova-allLabs) #Создаем обычную локальную переменную с именем проекта
-project(${Test1}) # Название проекта
 
-set(Vector Vector)
-set(VectorLib VectorLib)
 
-#set(MyLib1 MyLib1) #Переменная с именем библиотеки
+set(PROJECT_NAME 381706-1Kolesova-allLabs) 
 
-set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
-if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
-  set(CMAKE_BUILD_TYPE Release) #Если нет то устанавливаем Release
+project(${PROJECT_NAME}) 
+
+
+
+set (ArrayList ArrayList)
+
+set(ArrayListLib ArrayListLib) 
+
+set (ArrayListTests ArrayListTests)
+
+
+
+set(ExceptionLib ExceptionLib)
+
+
+
+set(QueueLib QueueLib)
+
+s
+
+et(StackLib StackLib)
+
+
+
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)  
+
+if(NOT CMAKE_BUILD_TYPE)
+ 
+  set(CMAKE_BUILD_TYPE Release) 
 endif()
 
-#add_executable(${Vector} ${srcs} ${hdrs}) #Создаем проект с именем из переменной ${PROJECT_NAME}, в него добавляются файлы из переменных ${srcs} и ${hdrs}
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 
-add_subdirectory(Vector) #Собираем проект в поддиректории lib1
-add_subdirectory(VectorLib) #Собираем проект в поддиректории lib1
+file(GLOB hdrs "*.h*") 
+file(GLOB srcs "*.cpp") 
 
-#target_link_libraries(${PROJECT_NAME} ${MyLib1}) #Подключаем к проекту с именем ${PROJECT_NAME} библиотеку с именем ${MyLib1}
 
+#add_executable(${PROJECT_NAME} ${srcs} ${hdrs}) 
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
+
+add_subdirectory(gtest)
+
+
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ArrayListLib)
+
+add_subdirectory(ArrayList)
+
+add_subdirectory(ArrayListLib)
+
+add_subdirectory(ArrayListTests)
+
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExceptionLib)
+
+add_subdirectory(ExceptionLib)
+
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
+add_subdirectory(QueueLib)
+
+
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
+add_subdirectory(StackLib)
