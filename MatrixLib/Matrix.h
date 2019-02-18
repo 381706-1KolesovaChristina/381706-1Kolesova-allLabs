@@ -160,6 +160,6 @@ TVector<T>& TMatrix<T>::operator[](int i)
 	if (i >= 0)
 		if (i < this->Size)
 			return this->Mas[i];
-		else throw 1;
-	else throw - 1;
+		else throw MyException("Error");
+	else throw MyException("Error");;
 }
