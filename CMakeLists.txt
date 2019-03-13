@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
+﻿cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
 
 set(PROJECT_NAME 381706-1Kolesova-allLabs) #Создаем обычную локальную переменную с именем проекта
 project(${PROJECT_NAME}) # Название проекта
@@ -24,7 +24,7 @@ add_subdirectory(ExceptionLib)
 
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
-add_subdirectory(Stack)
+add_subdirectory(StackLib)
 
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)

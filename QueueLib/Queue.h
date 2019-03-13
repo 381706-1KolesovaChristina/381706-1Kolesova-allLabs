@@ -43,7 +43,7 @@ void TQueue<T>::Put(T a)
     throw MyException(" Queue is full ");
   else 
   {
-    TStack<T>::mas[start] = a;
+    TStack<T>::Mas[start] = a;
     start = (start + 1) % TStack<T>::size;
     count++;
   }
@@ -57,7 +57,7 @@ T TQueue<T>::Get()
   else 
   {
     T temp = TStack<T>::Mas[TStack<T>::top];
-    TStack<T>::top = (TStack<T>::Top + 1) % TStack<T>::Size;
+    TStack<T>::top = (TStack<T>::top + 1) % TStack<T>::size;
     count--;
     return temp;
   }
@@ -66,7 +66,7 @@ T TQueue<T>::Get()
 template <class T>
 bool TQueue<T>::IsFull() 
 {
-  if (count == TStack<T>::Size)
+  if (count == TStack<T>::size)
     return true;
   else
     return false;
@@ -84,10 +84,10 @@ bool TQueue<T>::IsEmpty()
 template <class T>
 void TQueue<T>::PrintQueue()
 {
-  int i = TStack<T>::Top;
+  int i = TStack<T>::top;
   for (int j = 1; j <= count; j++)
   {
-    i = (i + 1) % TStack<T>::Size;
+    i = (i + 1) % TStack<T>::size;
     cout << "\t" << TStack<T>::Mas[i];
   }
 }

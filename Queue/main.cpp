@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Queue.h"
-#include "Exception.h"
+#include "ExceptionLib.h"
 using namespace std;
 
 int main()
