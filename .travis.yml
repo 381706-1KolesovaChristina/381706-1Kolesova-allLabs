@@ -8,6 +8,6 @@ before_script:
 script:
   - cmake ../381706-1Kolesova-allLabs
   - make -j
-  - ./ListTest/ListTest
+  - ./ListTest/test_List
 notifications:
   email: false
