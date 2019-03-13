@@ -16,15 +16,15 @@ set (ArrayListTests ArrayListTests)
 
 
 
+
 set(ExceptionLib ExceptionLib)
 
 
 
 set(QueueLib QueueLib)
 
-s
 
-et(StackLib StackLib)
+set(StackLib StackLib)
 
 
 
@@ -58,6 +58,7 @@ add_subdirectory(ArrayList)
 add_subdirectory(ArrayListLib)
 
 add_subdirectory(ArrayListTests)
+
 
 
 

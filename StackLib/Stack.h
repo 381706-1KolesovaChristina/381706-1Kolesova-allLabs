@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "ExceptionLib.h"
+#include "..//ExceptionLib/ExceptionLib.h"
 using namespace std;
 
 template <class T>

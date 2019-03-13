@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include "ExceptionLib.h"
-#include "Queue.h"
+#include "..//ExceptionLib/ExceptionLib.h"
+#include "..//QueueLib/Queue.h"
 
 template <class T>
 class TArrayList 
@@ -25,7 +25,7 @@ public:
   void PutEnd(T element);   
   void PutSmthInside(T element, int n);
   T GetBegin(); 
-  T GetEnd();  / 
+  T GetEnd();   
   T GetSmthFromTheInside(int n);
 };
 
@@ -96,9 +96,9 @@ template <class T>
 T TArrayList<T>::GetSmthFromTheInside(int n)
 {
   if (n < 0 || n > size)
-    throw TException("Unacceptable index");
+    throw MyException("Unacceptable index");
   if (IsEmpty())
-    throw TException("List's empty");
+    throw MyException("List's empty");
 
   if (n == 0)
     return GetBegin();
@@ -162,6 +162,7 @@ void TArrayList<T>::PutBegin(T elem)
   count++;
 }
 
+template <class T>
 void TArrayList<T>::PutEnd(T element)
 {
   if (IsFull())
