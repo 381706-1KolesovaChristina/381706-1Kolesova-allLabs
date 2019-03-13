@@ -78,7 +78,7 @@ void TList<T>::Put(int n, T A)
   if (this->IsFull())
     throw MyException(" List is full ");
   if (n < 1 || n > Size - 1)
-    throw TException(" Wrong index ");
+    throw MyException(" Wrong index ");
   else
   {
     int i = 0;
