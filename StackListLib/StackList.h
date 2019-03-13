@@ -1,6 +1,6 @@
 #pragma once
-#include "ListLib.h"
-#include "ExceptionLib.h"
+#include "..//ListLib/List.h"
+#include "..//ExceptionLib/ExceptionLib.h"
 
 template <class T>
 class TStackList : public TList<T>
@@ -31,7 +31,7 @@ TStackList<T>::TStackList(int _size) : TList<T>()
 template <class T>
 TStackList<T>::TStackList(TStackList<T> &A) : TList<T>(A)
 {
-	TList<T>::size = A.size;
+	TList<T>::Size = A.Size;
 }
 
 template<class T>
@@ -63,20 +63,20 @@ int TStackList<T>::GetMaxSize()
 template<class T>
 inline int TStackList<T>::GetSize()
 {
-	return TList<T>::size;
+	return TList<T>::Size;
 }
 
 template <class T>
 bool TStackList<T>::IsEmpty()
 {
-	if (TList<T>::size == 0)
+	if (TList<T>::Size == 0)
 		return true;
 	return false;
 }
 template<class T>
 bool TStackList<T>::IsFull()
 {
-	if (TList<T>::size == size_st)
+	if (TList<T>::Size == size_st)
 		return true;
 	return false;
 }

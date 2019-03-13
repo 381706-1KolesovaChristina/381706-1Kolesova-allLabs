@@ -1,5 +1,5 @@
 #include <iostream>
-#include "StackList.h"
+#include "..//StackListLib/StackList.h"
 
 using namespace std;
 

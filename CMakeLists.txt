@@ -4,7 +4,7 @@ set(PROJECT_NAME 381706-1Kolesova-allLabs) #Создаем обычную лок
 project(${PROJECT_NAME}) # Название проекта
 
 set (ListLib ListLib)
-set(Exception Exception)
+set(ExceptionLib ExceptionLib)
 
 set(StackList StackList)
 set(StackListLib StackListLib) 
@@ -27,8 +27,8 @@ add_subdirectory(gtest)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
 add_subdirectory(ListLib)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Exception)
-add_subdirectory(Exception)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExceptionLib)
+add_subdirectory(ExceptionLib)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
 add_subdirectory(StackList)

@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include "Elem.h"
-#include "ExceptionLib.h"
+#include "..//ListLib/Elem.h"
+#include "..//ExceptionLib/ExceptionLib.h"
 
 using namespace std;
 
