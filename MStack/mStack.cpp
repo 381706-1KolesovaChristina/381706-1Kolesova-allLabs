@@ -1,5 +1,5 @@
-#include "MStack.h"
-#include "ExceptionLib.h"
+#include "..//MStackLib/MStack.h"
+#include "..//ExceptionLib/ExceptionLib.h"
 #include <time.h>
 #include <iostream>
 
@@ -31,7 +31,7 @@ int main()
    }
   catch (MyException exp) 
    {
-    exp.Show();
+    exp.Print();
    }
 
   std::cout << "\n";

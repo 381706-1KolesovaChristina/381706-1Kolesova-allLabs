@@ -9,15 +9,14 @@ project(${PROJECT_NAME}) # Название проекта
 
 set (MStack MStack)
 set(MStackLib MStackLib) #Переменная с именем библиотеки
-
-set (mStackTest mStackTest)
+set (MStackTest MStackTest)
 
 
 
 set(ExceptionLib ExceptionLib)
 
 
-set(stackL StackLib)
+set(StackLib StackLib)
 
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)  
@@ -52,7 +51,7 @@ add_subdirectory(MStack)
 
 add_subdirectory(MStackLib)
 
-add_subdirectory(mStackTest)
+add_subdirectory(MStackTest)
 
 
 

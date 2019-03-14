@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Stack.h"
-#include "ExceptionLib.h"
+#include "..//StackLib/Stack.h"
+#include "..//ExceptionLib/ExceptionLib.h"
 
 template <class T>
 class TNewStack :public TStack<T> 
@@ -22,7 +22,7 @@ TNewStack<T>::~TNewStack()
 {
   TStack<T>::top = 0;
   TStack<T>::size = 0;
-  delete[] TStack<T>::mas;
+  delete[] TStack<T>::Mas;
 }
 
 template <class T>
@@ -33,9 +33,9 @@ TNewStack<T>::TNewStack(int _size, T* _mas)
   TStack<T>::size = _size;
   TStack<T>::top = 0;
   if (_mas == 0) 
-    TStack<T>::mas = 0;
+    TStack<T>::Mas = 0;
   else
-    TStack<T>::mas = _mas;
+    TStack<T>::Mas = _mas;
 }
 
 template <class T>
@@ -43,9 +43,9 @@ TNewStack<T>::TNewStack(TNewStack <T> &NS)
 {
   TStack<T>::size = NS.TStack<T>::size;
   TStack<T>::top = NS.TStack<T>::top;
-  if (NS.TStack<T>::mas == 0) TStack<T>::mas = 0;
+  if (NS.TStack<T>::Mas == 0) TStack<T>::Mas = 0;
   else
-    TStack<T>::mas = NS.TStack<T>::mas;
+    TStack<T>::Mas = NS.TStack<T>::Mas;
 }
 
 template <class T>
@@ -72,13 +72,13 @@ void TNewStack<T>::SetMas(int _size, T* _mas)
   if (_size <=0)
     throw MyException(" Wrong size ");
   TStack<T>::size = _size;
-  TStack<T>::mas = _mas;
+  TStack<T>::Mas = _mas;
 }
 
 template <class T>
 void TNewStack<T>::Put(T _A)
 {
-  TStack<T>::mas[TStack<T>::top] = _A;
+  TStack<T>::Mas[TStack<T>::top] = _A;
   TStack<T>::top++;
 }
 
@@ -86,7 +86,7 @@ template <class T>
 T TNewStack<T>::Get()
 {
   TStack<T> :: top--;
-  return TStack<T> :: mas[TStack<T> :: top];
+  return TStack<T> :: Mas[TStack<T> :: top];
 }
 
 
@@ -124,7 +124,7 @@ template <class T>
 TMStack<T> ::TMStack(int _n, int _size)
 {
   if (_n <= 0 || _size <= 0)
-    throw TException (" Negative size ");
+    throw MyException (" Negative size ");
 
   n = _n; 
   size = _size; 
