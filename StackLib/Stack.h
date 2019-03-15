@@ -16,9 +16,11 @@ class TStack
   virtual ~TStack();
   void Put(T a);
   T Get();
+	int GetSize() { return Size; }
   bool IsFull();
   bool IsEmpty();
   void PrintStack();
+	T StGetTop(); 
 };
 
 template <class T>
@@ -88,6 +90,14 @@ T TStack<T> ::Get()
      Top--;
     return Mas[Top];
   }
+}
+
+template <class T>
+T TStack<T> ::StGetTop()
+{
+	if (IsEmpty())
+		throw "Stack is empty.";
+	return Mas[Top - 1];
 }
 
 template <class T>

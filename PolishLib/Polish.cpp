@@ -22,7 +22,7 @@ TString::TString(TString &A)
 TString::TString(char *st)
 {
 	if (st == 0)
-		throw TException("Error. String is empty.");
+		throw MyException("Error. String is empty.");
 	if (st[0] == '\0')
 		return;
 	char t = 1;
@@ -90,7 +90,7 @@ char &TString::operator[](int i)
 	if ((i >= 0) && (i< size))
 		return mas[i];
 	else
-		throw TException("Error. Wrong index.");
+		throw MyException("Error. Wrong index.");
 }
 
 istream& operator >> (istream &istr, TString &A)
@@ -145,7 +145,7 @@ int GetPriority(const char op)
 	case '/': 
 		return 3;
 	default: 
-		throw TException("Error. Unacceptable symbol.");
+		throw MyException("Error. Unacceptable symbol.");
 	}
 }
 
@@ -154,7 +154,7 @@ double Res(TQueue<char> Q)
 	double res;
 	TStack <double> St(Q.GetSize());
 	if (IsOperation(Q.GetTop()))
-		throw TException("Error. Uncurrent queue.");
+		throw MyException("Error. Uncurrent queue.");
 
 	while (!Q.IsEmpty())
 	{
@@ -184,7 +184,7 @@ double Res(TQueue<char> Q)
 	}
 	res = St.Get();
 	if (!St.IsEmpty())
-		throw TException("Error. Uncurrent queue.");
+		throw MyException("Error. Uncurrent queue.");
 	return res;
 }
 TQueue<char> ConvertToPolish(TString str)
@@ -208,7 +208,7 @@ TQueue<char> ConvertToPolish(TString str)
 			else if (IsOperation(str[0]))
 			{
 				if (GetPriority(str[0]) != 1)
-					throw TException("Error. Wrong math expression.");
+					throw MyException("Error. Wrong math expression.");
 			}
 		}
 
@@ -238,7 +238,7 @@ TQueue<char> ConvertToPolish(TString str)
 				open++;
 
 			if (str[i] == ')')
-				throw TException("Error. Wrong math expression.");
+				throw MyException("Error. Wrong math expression.");
 		}
 
 		else if (IsOperation(str[i]))
@@ -269,11 +269,11 @@ TQueue<char> ConvertToPolish(TString str)
 			}
 		}
 		else if (str[i] != '\0')
-			throw TException("Error. Wrong math expression.");
+			throw MyException("Error. Wrong math expression.");
 	}
 	while (!St.IsEmpty())
 		Q.Put(St.Get());
 	if (open != close)
-		throw TException("Error. Wrong math expression.");
+		throw MyException("Error. Wrong math expression.");
 	return Q;
 }
