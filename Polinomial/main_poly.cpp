@@ -1,4 +1,4 @@
-#include "Polinomial.h"
+#include "..//PolinomialLib/Polinomial.h"
 
 int main()
 {
@@ -15,9 +15,9 @@ int main()
 	
 	cout << "\n---Created polynomials---\n";
 	TPolinomial Poly(5);
-	Poly += Moly1;
-	Poly += Moly3;
-	cout << "\n---Polynom---\n" 
+	Poly += M1;
+	Poly += M3;
+	cout << "\n---Polynom---\n";
 	cout << Poly << "\n";
 
 	return 0;

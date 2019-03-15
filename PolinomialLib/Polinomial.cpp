@@ -1,1 +1,1 @@
-#include "Polinomial.h"
+#include "..//PolinomialLib/Polinomial.h"

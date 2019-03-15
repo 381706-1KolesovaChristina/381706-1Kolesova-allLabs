@@ -1,5 +1,5 @@
 #include "gtest.h"
-#include "Monomial.h"
+#include "..//MonomialLib/Monomial.h"
 
 TEST(TMonomial, can_create_monomial)
 {
