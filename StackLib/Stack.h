@@ -13,7 +13,7 @@ class TStack
   public:
   TStack(int n = 0);
   TStack(TStack<T> &st);
-  virtual ~TStack();
+  //virtual ~TStack();
   void Put(T a);
   T Get();
 	int GetSize() { return Size; }
@@ -59,14 +59,14 @@ TStack <T> ::TStack(TStack <T> &st)
   }
 }
 
-template<class T>
-TStack <T> :: ~TStack()
-{
-  if (Mas != NULL)
-    delete[] Mas;
-  Top = 0;
-  Size = 0;
-}
+//template<class T>
+//TStack <T> :: ~TStack()
+//{
+//  if (Mas != NULL)
+//    delete[] Mas;
+//  Top = 0;
+//  Size = 0;
+//}
 
 template <class T>
 void TStack<T> ::Put(T a)

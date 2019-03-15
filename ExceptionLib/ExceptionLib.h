@@ -8,13 +8,10 @@ class MyException
 private:
 	string str;
 public:
-	MyException(std::string _str);
-	void Print();
+	MyException(std::string _str) : str(_str) {}
+	void Print()
+	{
+		cout << "Error: " << str << endl;
+	}
 };
 
-MyException::MyException(std::string _str) : str(_str) {}
-
-void MyException::Print()
-{
-	cout << "Error: " << str << endl;
-}

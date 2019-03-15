@@ -10,7 +10,7 @@ class TQueue : public TStack <T>
   public:
   TQueue(int n = 0);
   TQueue(TQueue <T> &q);
-  virtual ~TQueue();
+  //virtual ~TQueue();
   void Put(T a);
   T Get();
 	T GetTop();
@@ -34,8 +34,8 @@ TQueue<T>::TQueue(TQueue<T> &q) : TStack<T>(q)
   count = q.count;
 }
 
-template <class T>
-TQueue<T>::~TQueue() {}
+//template <class T>
+//TQueue<T>::~TQueue() {}
 
 template <class T>
 void TQueue<T>::Put(T a) 
@@ -44,9 +44,9 @@ void TQueue<T>::Put(T a)
     throw MyException(" Queue is full ");
   else 
   {
-    TStack<T>::Mas[start] = a;
-    start = (start + 1) % TStack<T>::Size;
-    count++;
+		TStack<T>::Put(a);
+		TStack<T>::Top = TStack<T>::Top % TStack<T>::Size;
+		count++;
   }
 }
 
@@ -57,8 +57,8 @@ T TQueue<T>::Get()
     throw MyException(" Queue is empty ");
   else 
   {
-    T temp = TStack<T>::Mas[TStack<T>::Top];
-    TStack<T>::Top = (TStack<T>::Top + 1) % TStack<T>::Size;
+    T temp = TStack<T>::Mas[start];
+    start = (start + 1) % TStack<T>::Size;
     count--;
     return temp;
   }
