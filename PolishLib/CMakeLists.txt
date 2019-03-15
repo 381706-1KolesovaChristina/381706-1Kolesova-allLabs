@@ -1,6 +1,4 @@
-﻿file(GLOB hdrs "*.h*") 
-file(GLOB srcs "*.cpp")
+file(GLOB hdrs "*.h*") #Добавляем в переменную hdrs все файлы с расширением .h
+file(GLOB srcs "*.cpp")#Добавляем в переменную srcs все файлы с расширением .h
 
-add_library(${PolishLib} STATIC ${srcs} ${hdrs})
-
-
+add_library(${PolishLib} STATIC ${srcs} ${hdrs}) 

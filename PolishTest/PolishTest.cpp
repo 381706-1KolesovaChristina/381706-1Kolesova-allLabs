@@ -1,259 +1,108 @@
-#include "gtest.h"
 #include "Polish.h"
+#include <gtest.h>
+
 
 TEST(Polish, can_get_priority)
 {
-
-  ASSERT_EQ(1, GetPrt(')'));
-  ASSERT_EQ(1, GetPrt('('));
-  ASSERT_EQ(2, GetPrt('+'));
-  ASSERT_EQ(2, GetPrt('-'));
-  ASSERT_EQ(3, GetPrt('*'));
-  ASSERT_EQ(3, GetPrt('/'));
-  ASSERT_ANY_THROW(GetPrt('!'));
+	EXPECT_EQ(GetPriority(')'), 1);
+	EXPECT_EQ(GetPriority('('), 1);
+	EXPECT_EQ(GetPriority('+'), 2);
+	EXPECT_EQ(GetPriority('-'), 2);
+	EXPECT_EQ(GetPriority('*'), 3);
+	EXPECT_EQ(GetPriority('/'), 3);
 }
 
-TEST(Polish, can_check_is_op)
+TEST(Polish, can_check_is_operation)
 {
-  ASSERT_EQ(1, IsOp(')'));
-  ASSERT_EQ(1, IsOp('('));
-  ASSERT_EQ(1, IsOp('+'));
-  ASSERT_EQ(1, IsOp('-'));
-  ASSERT_EQ(1, IsOp('*'));
-  ASSERT_EQ(1, IsOp('/'));
-  ASSERT_EQ(false, IsOp('4'));
-  ASSERT_EQ(false, IsOp('!'));
+	EXPECT_EQ(IsOperation('+'), true);
+	EXPECT_EQ(IsOperation('+'), true);
+	EXPECT_EQ(IsOperation('*'), true);
+	EXPECT_EQ(IsOperation('/'), true);
+	EXPECT_EQ(IsOperation(')'), true);
+	EXPECT_EQ(IsOperation('('), true);
+	EXPECT_EQ(IsOperation('.'), false);
 }
 
-TEST(Polish, can_convert_to_pol)
+TEST(Polish, can_convert_to_polish)
 {
-  char s[] = "9+8";
-  TString A(s);
-  TQueue<char> B;
-  B = ConvertToPol(A);
-  ASSERT_EQ(B.Get(), '[');
-  ASSERT_EQ(B.Get(), '9');
-  ASSERT_EQ(B.Get(), ']');
-  ASSERT_EQ(B.Get(), '[');
-  ASSERT_EQ(B.Get(), '8');
-  ASSERT_EQ(B.Get(), ']');
-  ASSERT_EQ(B.Get(), '+');
+	char s[] = "4+5";
+	TString str(s);
+	TQueue<char> A;
+        A = ConvertToPolish(str);
+	
+	EXPECT_EQ('{', A.Get());
+	EXPECT_EQ('4', A.Get());
+	EXPECT_EQ('}', A.Get());
+	EXPECT_EQ('{', A.Get());
+	EXPECT_EQ('5', A.Get());
+	EXPECT_EQ('}', A.Get());
+	EXPECT_EQ('+', A.Get());
 }
 
 TEST(Polish, can_add)
 {
-  char s[] = "9+8";
-  TString A(s);
+  char s[] = "5+4";
+  TString str(s);
   TQueue<char> B;
-  B = ConvertToPol(A);
-  EXPECT_EQ(17, Rez(B));
+  B = ConvertToPolish(str);
+  EXPECT_EQ(9, Res(B));
 }
-
-TEST(Polish, throw_when_math_expression_have_is_uncurrent_symbol)
-{
-  char s[] = "9!8";
-  TString A(s);
-  TQueue<char> B;
-  ASSERT_ANY_THROW(ConvertToPol(A));
-}
-
-TEST(Polish, throw_when_math_expression_have_is_uncurrent_kol_skobok)
-{
-  char s[] = "(9*8";
-  TString A(s);
-  TQueue<char> B;
-  ASSERT_ANY_THROW(ConvertToPol(A));
-}
-
-TEST(Polish, throw_when_math_expression_is_fuflo_in_begin)
-{
-  char s[] = "*9*8";
-  TString A(s);
-  TQueue<char> B;
-  ASSERT_ANY_THROW(ConvertToPol(A));
-}
-
-TEST(Polish, no_throw_when_queue_is_chiki_bamboni)
-{
-  TQueue<char> B(7);
-  B.Put('[');
-  B.Put('9');
-  B.Put(']');
-  B.Put('[');
-  B.Put('8');
-  B.Put(']');
-  B.Put('+');
-  ASSERT_NO_THROW(Rez(B));
-  ASSERT_EQ(Rez(B), 17);
-}
-
-TEST(Polish, throw_when_queue_is_fuflo_in_begin)
-{
-  TQueue<char> B(7);
-  B.Put('+');
-  B.Put('[');
-  B.Put('9');
-  B.Put(']');
-  B.Put('[');
-  B.Put('8');
-  B.Put(']');
-  ASSERT_ANY_THROW(Rez(B));
-}
-
-TEST(Polish, throw_when_queue_is_fuflo_in_begin_2)
-{
-  TQueue<char> B(7);
-  B.Put('[');
-  B.Put('9');
-  B.Put(']');
-  B.Put('*');
-  B.Put('[');
-  B.Put('8');
-  B.Put(']');
-  ASSERT_ANY_THROW(Rez(B));
-}
-
-TEST(Polish, throw_when_queue_is_fuflo_1)
-{
-  TQueue<char> B(10);
-  B.Put('[');
-  B.Put('9');
-  B.Put(']');
-
-  B.Put('[');
-  B.Put('9');
-  B.Put(']');
-  
-  B.Put('+');
-
-  B.Put('[');
-  B.Put('4');
-  B.Put(']');
-  
-  ASSERT_ANY_THROW(Rez(B));
-}
-
-TEST(Polish, throw_when_queue_is_fuflo)
-{
-  TQueue<char> B(7);
-  B.Put('[');
-  B.Put('9');
-  B.Put(']');
-
-  B.Put('[');
-  B.Put('9');
-  B.Put(']');
-
-  B.Put('&');
-
-  ASSERT_ANY_THROW(Rez(B));
-}
-
-TEST(Polish, can_add_two_digit_number) 
-{
-  char s[] = "43+57";
-  TString A(s);
-  TQueue<char> B;
-  B = ConvertToPol(A);
-
-  EXPECT_EQ(100, Rez(B));
-}
-
 TEST(Polish, can_subtract) 
 {
-  char s[] = "9-8";
+  char s[] = "10-5";
   TString A(s);
   TQueue<char> B;
-  B = ConvertToPol(A);
+  B = ConvertToPolish(A);
 
-  EXPECT_EQ(1, Rez(B));
+  EXPECT_EQ(5, Res(B));
 }
 
-TEST(Polish, can_multiplication)
+TEST(Polish, can_multiply)
 {
-  char s[] = "9*8";
+  char s[] = "5*4";
   TString A(s);
   TQueue<char> B;
-  B = ConvertToPol(A);
+  B = ConvertToPolish(A);
 
-  EXPECT_EQ(72, Rez(B));
+  EXPECT_EQ(20, Res(B));
 }
 
-TEST(Polish, can_multiplication_3_param) 
+TEST(Polish, throw_when_math_expression_have_is_an_unacceptable_symbol)
 {
-  char s[] = "9*8*2";
+  char s[] = "5#6";
   TString A(s);
   TQueue<char> B;
-  B = ConvertToPol(A);
 
-  EXPECT_EQ(144, Rez(B));
+  ASSERT_ANY_THROW(B = ConvertToPolish(A));
 }
 
-TEST(Polish, can_multiplication_and_add_whith_hooks) 
+TEST(Polish, throw_when_first_operation_is_something)
 {
-  char s[] = "(9+8)*2";
+  char s[] = "*5+8";
+
   TString A(s);
   TQueue<char> B;
-  B = ConvertToPol(A);
-  EXPECT_EQ(34, Rez(B));
+
+  ASSERT_ANY_THROW(B = ConvertToPolish(A));
 }
 
-TEST(Polish, can_multiplication_and_add_whithout_hooks) 
+TEST(Polish, throw_when_kol_sk_wrong)
 {
-  char s[] = "9+8*2";
-  TString A(s);
-  TQueue<char> B;
-  B = ConvertToPol(A);
-  Rez(B);
-  EXPECT_EQ(25, Rez(B));
+  char s[] = "-2+8)";
+  char s1[] = "(-2+8";
+
+  TString A(s), B(s1);
+  TQueue<char> C, D;
+
+  ASSERT_ANY_THROW(C = ConvertToPolish(A));
+  ASSERT_ANY_THROW(D = ConvertToPolish(B));
 }
-
-TEST(Polish, can_split)
+TEST(Polish, can_del)
 {
-  char s[] = "8/2";
+  char s[] = "10/2";
   TString A(s);
   TQueue<char> B;
-  B = ConvertToPol(A);
+  B = ConvertToPolish(A);
 
-  EXPECT_EQ(4, Rez(B));
-}
-
-TEST(Polish, can_multi_1) 
-{
-  char s[] = "(43+57)*43";
-  TString A(s);
-  TQueue<char> B;
-  B = ConvertToPol(A);
-
-  EXPECT_EQ(4300, Rez(B));
-}
-
-TEST(Polish, can_multi_2)
-{
-  char s[] = "(43+57)/20";
-  TString A(s);
-  TQueue<char> B;
-  B = ConvertToPol(A);
-
-  EXPECT_EQ(5, Rez(B));
-}
-
-TEST(Polish, can_multi_3) 
-{
-  char s[] = "(43+57)/(20+5)";
-  TString A(s);
-  TQueue<char> B;
-  B = ConvertToPol(A);
-
-  EXPECT_EQ(4, Rez(B));
-}
-
-TEST(Polish, can_multi_with_negative_first_number) 
-{
-  char s[] = "-5+(43+57)/20";
-  TString A(s);
-  TQueue<char> B;
-  B = ConvertToPol(A);
-
-  EXPECT_EQ(0, Rez(B));
+  EXPECT_EQ(5, Res(B));
 }

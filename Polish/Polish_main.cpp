@@ -1,22 +1,16 @@
-#include "Polish.h"
+#include <iostream>
+#include "Polish.cpp"
 
-int  main()
+using namespace std;
+
+int main()
 {
-  try
-  {
-    cout << "\n---Enter your math expression---\n";
-    TString s;
-    cin >> s;
-    cout <<"\n----Your expression:"<< s;
+    cout << "Enter math expression:";
+    TString str;
+    cin >> str;
+    cout << str;
     TQueue<char> B;
-    B = ConvertToPolish(s);
-    B.Print();
-    cout << "\n----Polish version your expression: " << Rez(B) << endl;
-  }
-  
-  catch (MyException exp)
-  {
-    exp.Print();
-  }
-  return 0;
+    B = ConvertToPolish(str);
+    cout << " = " << Res(B) << endl;
+    return 0;
 }

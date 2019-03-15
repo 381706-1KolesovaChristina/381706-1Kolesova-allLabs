@@ -6,22 +6,16 @@ set(PROJECT_NAME 381706-1Kolesova-allLabs)
 project(${PROJECT_NAME})
  
 
-
 set(StackLib StackLib)
  
-
 set(QueueLib QueueLib)
-
 
 set(ExceptionLib ExceptionLib) 
 
 
-
 set(PolishLib PolishLib)
-
 set(Polish Polish)
-
-set(PolishTest PolishTestt)
+set(PolishTest PolishTest)
 
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)  
@@ -45,28 +39,19 @@ add_subdirectory(gtest)
 
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ExceptionLib)
-
 add_subdirectory(ExceptionLib)
 
 
-
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
-
 add_subdirectory(QueueLib)
 
 
-
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
-
 add_subdirectory(StackLib) 
 
 
-
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PolishLib)
-
 add_subdirectory(PolishLib) 
-
 add_subdirectory(Polish) 
-
 add_subdirectory(PolishTest) 
 

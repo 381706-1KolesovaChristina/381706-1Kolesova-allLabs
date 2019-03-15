@@ -1,5 +1,5 @@
 #pragma once
-#include "Stack.h"
+#include "..//StackLib/Stack.h"
 
 template <class T>
 class TQueue : public TStack <T> 
