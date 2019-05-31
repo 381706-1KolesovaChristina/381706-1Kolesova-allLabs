@@ -98,11 +98,11 @@ TTab<T>::TTab(TTab& A)
 template <class T>
 void TTab<T>::Put(string _key, T _data)
 {
-	try
-	{
+
   if (IsFull())
     throw -1;
-
+  try
+  {
     if (Search(_key) != not_found)
       throw -1;
     else
@@ -114,7 +114,7 @@ void TTab<T>::Put(string _key, T _data)
   }
   catch (...)
   {
-    cout<<"Êëþ÷ ïîâòîðÿòñÿ\n";
+    cout<<"ÃŠÃ«Ã¾Ã· Ã¯Ã®Ã¢Ã²Ã®Ã°Ã¿Ã²Ã±Ã¿\n";
   }
 }
 
@@ -136,7 +136,7 @@ void TTab<T>::Put(TElem<T> A)
   }
   catch (...)
   {
-    cout<<"Êëþ÷ ïîâòîðÿòñÿ\n";
+    cout<<"ÃŠÃ«Ã¾Ã· Ã¯Ã®Ã¢Ã²Ã®Ã°Ã¿Ã²Ã±Ã¿\n";
   }
 }
 
