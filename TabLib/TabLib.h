@@ -121,8 +121,8 @@ void TTab<T>::Put(string _key, T _data)
 template <class T>
 void TTab<T>::Put(TElem<T> A)
 {
-	try
-	{
+ try
+ {
   if (IsFull())
     throw -1;
 
