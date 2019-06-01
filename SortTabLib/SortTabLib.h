@@ -189,7 +189,7 @@ void TSortTab<T>::Del(string _key)
 	}
 	catch(...)
 	{
-		cout<<"Ýë-ò íå íàéäåí\n";
+		cout<<"Ýë-ò íå íàéäåí \n";
 	}
 }
 
