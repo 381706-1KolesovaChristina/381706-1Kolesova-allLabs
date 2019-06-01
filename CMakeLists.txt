@@ -36,17 +36,17 @@ project(${PROJECT_NAME})
 #set (ObrPolLib ObrPolLib)
 #set (ObrPol ObrPol)
 
-#set (TabLib TabLib)
-#set (Tab Tab)
-#set (TabTest TabTest)
+set (HashTabLib TabLib)
+set (HashTab Tab)
+set (HashTabTest HashTabTest)
 
 #set (SortTabLib SortTabLib)
 #set (SortTab SortTab)
 #set (SortTabTest SortTabTest)
 
-set (TreeTabLib TreeTabLib)
-set (TreeTab TreeTab)
-set (TreeTabTest TreeTabTest)
+#set (TreeTabLib TreeTabLib)
+#set (TreeTab TreeTab)
+#set (TreeTabTest TreeTabTest)
 
 
 
@@ -66,9 +66,9 @@ include_directories (
 #${CMAKE_CURRENT_SOURCE_DIR}/StackListLib
 #${CMAKE_CURRENT_SOURCE_DIR}/PolyLib
 #${CMAKE_CURRENT_SOURCE_DIR}/ObrPolLib
-#${CMAKE_CURRENT_SOURCE_DIR}/TabLib
+${CMAKE_CURRENT_SOURCE_DIR}/HashTabLib
 #${CMAKE_CURRENT_SOURCE_DIR}/SortTabLib
-${CMAKE_CURRENT_SOURCE_DIR}/TreeTabLib
+#${CMAKE_CURRENT_SOURCE_DIR}/TreeTabLib
 ${CMAKE_CURRENT_SOURCE_DIR}/gtest
 ) 
 
@@ -102,17 +102,17 @@ ${CMAKE_CURRENT_SOURCE_DIR}/gtest
 #add_subdirectory(ObrPolLib)
 #add_subdirectory(ObrPol)
 
-#add_subdirectory(TabLib)
-#add_subdirectory(Tab)
-#add_subdirectory(TabTest)
+add_subdirectory(HashTabLib)
+add_subdirectory(HashTab)
+add_subdirectory(HashTabTest)
 
 #add_subdirectory(SortTabLib)
 #add_subdirectory(SortTab)
 #add_subdirectory(SortTabTest)
 
-add_subdirectory(TreeTabLib)
-add_subdirectory(TreeTab)
-add_subdirectory(TreeTabTest)
+#add_subdirectory(TreeTabLib)
+#add_subdirectory(TreeTab)
+#add_subdirectory(TreeTabTest)
 
 #add_subdirectory(Test)
 
