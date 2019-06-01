@@ -4,8 +4,8 @@ set(PROJECT_NAME 381706-1_Kolesova_labs)
 
 project(${PROJECT_NAME}) 
 
-set (HashTabLib TabLib)
-set (HashTab Tab)
+set (HashTabLib HashTabLib)
+set (HashTab HashTab)
 set (HashTabTest HashTabTest)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) 
