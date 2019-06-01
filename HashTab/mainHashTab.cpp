@@ -1,4 +1,4 @@
-#include "HashTabLib.h"
+#include "../HashTabLib/HashTabLib.h"
 #include <string>
 #include <iostream>
 #include <locale>
@@ -16,12 +16,12 @@ int main()
 	t1.Put(e3);
 	cout<<*t1.mas[0];
 	t1.Search("C");
-	cout<<"\n Ïîëîæèòü ýëåìåíò ñ èñïîëüçîâàííûì êëþ÷îì\n";
+	cout<<"\n ÃÃ®Ã«Ã®Ã¦Ã¨Ã²Ã¼ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã² Ã± Ã¨Ã±Ã¯Ã®Ã«Ã¼Ã§Ã®Ã¢Ã Ã­Ã­Ã»Ã¬ ÃªÃ«Ã¾Ã·Ã®Ã¬\n";
 	t1.Put(e4);
 	t1.Put("AAA", 29);
-	cout<<"\nÒàáëèöà:\n"<<t1;
+	cout<<"\nÃ’Ã Ã¡Ã«Ã¨Ã¶Ã :\n"<<t1;
 	t1.Del("AA");
-	cout<<"\n Óäàëÿåì îòñóòñòâóþùèé ýëåìåíò\n";
+	cout<<"\n Ã“Ã¤Ã Ã«Ã¿Ã¥Ã¬ Ã®Ã²Ã±Ã³Ã²Ã±Ã²Ã¢Ã³Ã¾Ã¹Ã¨Ã© Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²\n";
 	t1.Del("U");
   return 0;
 }
