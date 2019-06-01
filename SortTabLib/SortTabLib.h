@@ -142,7 +142,7 @@ void TSortTab<T>::Put(string _key, T _data)
 	}
 	catch (...)
 	{
-		cout<<"Îèíàêîâûå êëþ÷è\n";
+		cout<<"ÃŽÃ¨Ã­Ã ÃªÃ®Ã¢Ã»Ã¥ ÃªÃ«Ã¾Ã·Ã¨\n";
 	}
 }
 
@@ -166,7 +166,7 @@ void TSortTab<T>::Put(TSElem<T> A)
 	}
 	catch (...)
 	{
-		cout<<"Îäèíàêîâûå êëþ÷è\n";
+		cout<<"ÃŽÃ¤Ã¨Ã­Ã ÃªÃ®Ã¢Ã»Ã¥ ÃªÃ«Ã¾Ã·Ã¨\n";
 	}
 }
 
@@ -189,7 +189,7 @@ void TSortTab<T>::Del(string _key)
 	}
 	catch(...)
 	{
-		cout<<"Ýë-ò íå íàéäåí"\n";
+		cout<<"ÃÃ«-Ã² Ã­Ã¥ Ã­Ã Ã©Ã¤Ã¥Ã­\n";
 	}
 }
 
