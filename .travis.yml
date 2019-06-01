@@ -8,6 +8,6 @@ before_script:
 script:
   - cmake ../381706-1Kolesova-allLabs
   - make -j
-  - ./StackTest/StackTest
+  - ./TabTest/TabTest
 notifications:
   email: false
