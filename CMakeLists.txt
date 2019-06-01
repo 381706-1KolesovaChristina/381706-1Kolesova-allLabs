@@ -18,7 +18,9 @@ ${CMAKE_CURRENT_SOURCE_DIR}/SortTabLib
 ${CMAKE_CURRENT_SOURCE_DIR}/gtest
 ) 
 
-V
+add_subdirectory(SortTabLib)
+add_subdirectory(SortTab)
+add_subdirectory(SortTabTest)
 
 add_subdirectory(gtest)
 
