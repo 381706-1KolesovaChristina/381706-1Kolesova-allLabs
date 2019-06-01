@@ -13,6 +13,10 @@ if(NOT CMAKE_BUILD_TYPE)
    set(CMAKE_BUILD_TYPE Release) 
 endif()
 
+include_directories (
+${CMAKE_CURRENT_SOURCE_DIR}/HashTabLib${CMAKE_CURRENT_SOURCE_DIR}/gtest
+) 
+
 add_subdirectory(HashTabLib)
 add_subdirectory(HashTab)
 add_subdirectory(HashTabTest)
